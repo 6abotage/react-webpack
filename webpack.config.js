@@ -11,6 +11,9 @@ module.exports = (env) => ({
   },
   mode: env.production ? "production" : "development",
   devtool: env.production ? "source-map" : "eval-cheap-module-source-map",
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       {
