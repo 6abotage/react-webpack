@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 
@@ -6,6 +7,7 @@ module.exports = (env) => ({
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   mode: env.production ? "production" : "development",
   devtool: env.production ? "source-map" : "eval-cheap-module-source-map",

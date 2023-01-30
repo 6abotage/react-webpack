@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --env production",
     "dev": "npx webpack serve --open ",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
   },
   "author": "Dino Lindlau",
   "license": "ISC",
@@ -15,6 +16,8 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^9.1.2",
+    "eslint": "^8.33.0",
+    "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.8.3",
     "webpack": "^5.75.0",
