@@ -1,0 +1,11 @@
+{
+  "name": "webpack-react",
+  "version": "1.0.0",
+  "description": "webpack-react-template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dino Lindlau",
+  "license": "ISC"
+}
