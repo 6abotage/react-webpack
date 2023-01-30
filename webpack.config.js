@@ -1,12 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 
-module.exports = {
+module.exports = (env) => ({
   entry: "./src/index.jsx",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  mode: env.production ? "production" : "development",
+  devtool: env.production ? "source-map" : "eval-cheap-module-source-map",
   module: {
     rules: [
       {
@@ -25,4 +27,4 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
-}
+})
