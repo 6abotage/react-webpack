@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
 const path = require("path")
 
 module.exports = (env) => ({
@@ -14,6 +15,9 @@ module.exports = (env) => ({
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  devServer: {
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -26,10 +30,14 @@ module.exports = (env) => ({
               ["@babel/preset-env", { debug: true }],
               ["@babel/preset-react", { runtime: "automatic" }],
             ],
+            plugins: [!env.production && require.resolve("react-refresh/babel")].filter(Boolean),
           },
         },
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    !env.production && new ReactRefreshWebpackPlugin(),
+  ].filter(Boolean),
 })
